@@ -1,0 +1,52 @@
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <TextView
+        android:id="@+id/textOverlap"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Overlap: 0" />
+
+    <SeekBar
+        android:id="@+id/seekBarOverlap"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:max="100" />
+
+    <TextView
+        android:id="@+id/textConfidence"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Confidence: 0" />
+
+    <SeekBar
+        android:id="@+id/seekBarConfidence"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:max="100" />
+
+    <TextView
+        android:id="@+id/textStroke"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Stroke: 1" />
+
+    <SeekBar
+        android:id="@+id/seekBarStroke"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:max="4" />
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/save_button" />
+
+    <!-- Other UI elements like your ImageView and Buttons can be added here -->
+
+</LinearLayout>

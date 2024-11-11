@@ -98,8 +98,7 @@ class BasicFragment : Fragment() {
                 throw Exception("Fail!")
             }
 
-            val uploadURL =
-                "https://detect.roboflow.com/deeper-diseases/1?api_key=LfVTZkyLWVh9dR2GzXjc&confidence=20&overlap=30&format=image&stroke=2&labels=true"
+            val uploadURL = "https://detect.roboflow.com/deeper-diseases/1?api_key=LfVTZkyLWVh9dR2GzXjc&confidence=${Setting.confidence*100}&overlap=${Setting.overlap*100}&format=image&stroke=${Setting.stroke}&labels=true"
 
             CoroutineScope(Dispatchers.IO).launch {
                 var connection: HttpURLConnection? = null

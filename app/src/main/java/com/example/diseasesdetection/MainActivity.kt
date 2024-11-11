@@ -19,6 +19,7 @@ class MainActivity : AppCompatActivity() {
         bottomNavigationView.setOnItemSelectedListener {
             when (it.itemId) {
                 R.id.basic -> setCurrentFragment(basicLayout)
+                R.id.settings -> setCurrentFragment(SettingFragment())
             }
             true
         }
