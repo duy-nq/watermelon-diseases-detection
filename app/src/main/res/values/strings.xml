@@ -48,10 +48,12 @@
         libero vel nunc consequat, quis tincidunt nisl eleifend. Cras bibendum enim a justo luctus
         vestibulum. Fusce dictum libero quis erat maximus, vitae volutpat diam dignissim.
     </string>
-    <string name="function_01">Func01</string>
+    <string name="function_01">Detection</string>
     <string name="function_02">Func02</string>
-    <string name="function_03">Func03</string>
-    <!-- TODO: Remove or change this placeholder text -->
+    <string name="function_03">Settings</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="save_button">Save!</string>
+    <string name="seeker_overlap">Overlap</string>"
+    <string name="seeker_confidence">Confidence</string>
+    <string name="seeker_stroke">Stroke</string>
 </resources>

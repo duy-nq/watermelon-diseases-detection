@@ -9,6 +9,7 @@ import android.widget.Button
 import android.widget.SeekBar
 import android.widget.TextView
 import android.widget.Toast
+import com.google.android.material.slider.Slider
 
 class SettingFragment : Fragment() {
     private var overlap: Float = 0f
@@ -26,11 +27,11 @@ class SettingFragment : Fragment() {
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        val seekBarOverlap = view.findViewById<SeekBar>(R.id.seekBarOverlap)
+        val seekBarOverlap = view.findViewById<Slider>(R.id.sliderOverlap)
         val textOverlap = view.findViewById<TextView>(R.id.textOverlap)
-        val seekBarConfidence = view.findViewById<SeekBar>(R.id.seekBarConfidence)
+        val seekBarConfidence = view.findViewById<Slider>(R.id.sliderConfidence)
         val textConfidence = view.findViewById<TextView>(R.id.textConfidence)
-        val seekBarStroke = view.findViewById<SeekBar>(R.id.seekBarStroke)
+        val seekBarStroke = view.findViewById<Slider>(R.id.sliderStroke)
         val textStroke = view.findViewById<TextView>(R.id.textStroke)
 
         saveButton = view.findViewById(R.id.button)
@@ -43,46 +44,29 @@ class SettingFragment : Fragment() {
         "Confidence: $confidence".also { textConfidence.text = it }
         "Stroke: $stroke".also { textStroke.text = it }
 
-        seekBarOverlap.progress = (overlap * 100).toInt()
-        seekBarConfidence.progress = (confidence * 100).toInt()
-        seekBarStroke.progress = stroke
+        seekBarOverlap.value = (overlap * 100)
+        seekBarConfidence.value = (confidence * 100)
+        seekBarStroke.value = stroke.toFloat()
 
-        seekBarOverlap.setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener {
-            override fun onProgressChanged(seekBar: SeekBar?, progress: Int, fromUser: Boolean) {
-                overlap = progress / 100f
-                "Overlap: $overlap".also { textOverlap.text = it }
-            }
+        seekBarOverlap.addOnChangeListener { _, value, _ ->
+            overlap = value / 100f
+            "Overlap: $overlap".also { textOverlap.text = it }
+        }
 
-            override fun onStartTrackingTouch(seekBar: SeekBar?) {}
-            override fun onStopTrackingTouch(seekBar: SeekBar?) {}
-        })
+        seekBarConfidence.addOnChangeListener { _, value, _ ->
+            confidence = value / 100f
+            "Confidence: $confidence".also { textConfidence.text = it }
+        }
 
-        // Handle Confidence SeekBar changes
-        seekBarConfidence.setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener {
-            override fun onProgressChanged(seekBar: SeekBar?, progress: Int, fromUser: Boolean) {
-                confidence = progress / 100f
-                "Confidence: $confidence".also { textConfidence.text = it }
-            }
-
-            override fun onStartTrackingTouch(seekBar: SeekBar?) {}
-            override fun onStopTrackingTouch(seekBar: SeekBar?) {}
-        })
-
-        seekBarStroke.setOnSeekBarChangeListener(object: SeekBar.OnSeekBarChangeListener {
-            override fun onProgressChanged(seekBar: SeekBar?, progress: Int, fromUser: Boolean) {
-                stroke = progress
-                "Stroke: $progress".also { textStroke.text = it }
-            }
-
-            override fun onStartTrackingTouch(seekBar: SeekBar?) {}
-            override fun onStopTrackingTouch(seekBar: SeekBar?) {}
-        })
+        seekBarStroke.addOnChangeListener { _, value, _ ->
+            stroke = value.toInt()
+            "Stroke: $stroke".also { textStroke.text = it }
+        }
 
         saveButton?.setOnClickListener {
             saveSetting()
             Toast.makeText(requireContext(), "Saved!", Toast.LENGTH_SHORT).show()
         }
-
     }
 
     private fun saveSetting() {
