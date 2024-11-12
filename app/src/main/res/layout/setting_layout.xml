@@ -21,7 +21,7 @@
             android:id="@+id/textOverlap"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Overlap: 0%"
+            android:text=""
             android:textAppearance="?attr/textAppearanceSubtitle1"
             android:paddingBottom="4dp"/>
 
@@ -42,7 +42,7 @@
             android:id="@+id/textConfidence"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Confidence: 0%"
+            android:text=""
             android:textAppearance="?attr/textAppearanceSubtitle1"
             android:paddingTop="8dp"
             android:paddingBottom="4dp"/>
@@ -64,7 +64,7 @@
             android:id="@+id/textStroke"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Stroke: 1"
+            android:text=""
             android:textAppearance="?attr/textAppearanceSubtitle1"
             android:paddingTop="8dp"
             android:paddingBottom="4dp"/>
