@@ -91,6 +91,7 @@
             android:layout_gravity="center"
             app:cornerRadius="8dp"
             style="@style/Widget.MaterialComponents.Button.TextButton"
+            android:backgroundTint="@color/design_default_color_primary"
             android:layout_marginTop="16dp"/>
     </LinearLayout>
 

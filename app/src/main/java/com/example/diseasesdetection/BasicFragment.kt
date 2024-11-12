@@ -26,7 +26,6 @@ import java.net.HttpURLConnection
 import java.net.URL
 
 class BasicFragment : Fragment() {
-    private lateinit var buttonTakePhoto: Button
     private lateinit var buttonChooseFromGallery: Button
     private lateinit var buttonSendImage: Button
     private lateinit var imageView: ImageView
@@ -46,7 +45,6 @@ class BasicFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        buttonTakePhoto = view.findViewById(R.id.button_take_photo)
         buttonChooseFromGallery = view.findViewById(R.id.button_choose_from_gallery)
         buttonSendImage = view.findViewById(R.id.button_send_image)
         imageView = view.findViewById(R.id.image_view)
@@ -73,10 +71,6 @@ class BasicFragment : Fragment() {
             val intent = Intent(requireContext(), FullScreenImageActivity::class.java)
             intent.putExtra("imageUri", imageUri)
             startActivity(intent)
-        }
-
-        buttonTakePhoto.setOnClickListener {
-            Toast.makeText(requireContext(), "Take Photo feature is under construction.", Toast.LENGTH_SHORT).show()
         }
 
         buttonChooseFromGallery.setOnClickListener {

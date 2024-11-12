@@ -4,42 +4,57 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:gravity="center"
-    android:padding="16dp">
+    android:padding="24dp"
+    android:background="?android:attr/colorBackground">
 
-    <Button
-        android:id="@+id/button_take_photo"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/function_1" />
-
+    <!-- Button to choose from gallery -->
     <Button
         android:id="@+id/button_choose_from_gallery"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/function_2" />
+        android:text="@string/function_2"
+        android:backgroundTint="?attr/colorPrimary"
+        android:textColor="@android:color/white"
+        android:paddingStart="24dp"
+        android:paddingEnd="24dp"
+        android:layout_marginBottom="16dp"
+        style="@style/Widget.MaterialComponents.Button"/>
 
-    <ImageView
-        android:id="@+id/image_view"
+    <!-- Image view with background placeholder -->
+    <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="400dp"
-        android:scaleType="centerCrop"
-        android:contentDescription="@string/app_name"
-        android:clickable="true"
-        android:focusable="true"
-        android:background="@android:color/darker_gray" />
+        android:layout_marginBottom="16dp">
 
+        <ImageView
+            android:id="@+id/image_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="centerCrop"
+            android:contentDescription="@string/app_name"
+            android:background="@android:color/darker_gray"
+            android:clickable="true"
+            android:focusable="true"
+            android:padding="8dp"/>
+
+        <!-- Centered Progress Bar overlayed on the ImageView -->
+        <ProgressBar
+            android:id="@+id/progressBar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:visibility="gone"/>
+    </FrameLayout>
+
+    <!-- Button to send image -->
     <Button
         android:id="@+id/button_send_image"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/function_3" />
-
-    <ProgressBar
-        android:id="@+id/progressBar"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:visibility="gone"
-        style="@android:style/Widget.DeviceDefault.Light.ProgressBar.Large"/>
-
+        android:text="@string/function_3"
+        android:backgroundTint="?attr/colorSecondary"
+        android:textColor="@android:color/white"
+        android:paddingStart="24dp"
+        android:paddingEnd="24dp"
+        style="@style/Widget.MaterialComponents.Button"/>
 </LinearLayout>
