@@ -20,6 +20,7 @@ class MainActivity : AppCompatActivity() {
             when (it.itemId) {
                 R.id.basic -> setCurrentFragment(basicLayout)
                 R.id.settings -> setCurrentFragment(SettingFragment())
+                R.id.home -> setCurrentFragment(AdvancedFragment())
             }
             true
         }

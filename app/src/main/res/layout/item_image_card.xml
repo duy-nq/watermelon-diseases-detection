@@ -1,7 +1,9 @@
-<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+<!-- res/layout/image_card_view.xml -->
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_margin="8dp"
     app:cardCornerRadius="8dp"
     app:cardElevation="4dp">
@@ -12,22 +14,31 @@
         android:orientation="vertical"
         android:padding="8dp">
 
-        <!-- ImageView to display the selected image -->
+        <!-- Image Display -->
         <ImageView
-            android:id="@+id/imageView"
+            android:id="@+id/imageViewCard"
             android:layout_width="match_parent"
             android:layout_height="200dp"
             android:scaleType="centerCrop"
-            android:contentDescription="@string/function_2" />
+            android:contentDescription="@string/image_desc" />
 
-        <!-- Additional information after processing -->
+        <!-- Prediction Result Text -->
         <TextView
-            android:id="@+id/textViewResult"
-            android:layout_width="wrap_content"
+            android:id="@+id/textPredictionResult"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:paddingTop="4dp"
-            android:text="@string/card_default_result"
-            android:textAppearance="?attr/textAppearanceBody1" />
+            android:layout_marginTop="8dp"
+            android:text="@string/prediction_result"
+            android:textStyle="bold"
+            android:textColor="@android:color/black"
+            android:textSize="16sp" />
 
+        <!-- Confidence Score -->
+        <TextView
+            android:id="@+id/textConfidenceScore"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/confidence"
+            android:textSize="14sp" />
     </LinearLayout>
 </androidx.cardview.widget.CardView>
