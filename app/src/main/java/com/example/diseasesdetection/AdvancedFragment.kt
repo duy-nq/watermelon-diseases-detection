@@ -36,9 +36,11 @@ class AdvancedFragment : Fragment() {
         ActivityResultContracts.GetMultipleContents()
     ) { uris: List<Uri>? ->
         uris?.let {
+            val previousSize = imageUris.size
             imageUris.clear()
+            imagesAdapter.notifyItemRangeRemoved(0, previousSize)
             imageUris.addAll(it)
-            imagesAdapter.notifyDataSetChanged()
+            imagesAdapter.notifyItemRangeInserted(0, imageUris.size)
             updateUIAfterSelection()
         }
     }
