@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import kotlinx.coroutines.withContext
 
 class ImageAdapter(
     private val imageUris: List<Uri>,
@@ -61,14 +62,17 @@ class ImageAdapter(
         val uri = imageUris[position]
         holder.imageView.setImageURI(uri)
 
-        try {
+        if (position < jsonData.size) {
             val data = jsonData[position]
-            val highestConfidenceIndex = findHighestConfidence(data.predictions)
-            holder.predictionText.text = data.predictions[highestConfidenceIndex].`class`
-            holder.confidenceText.text = data.predictions[highestConfidenceIndex].confidence.toString()
-        } catch (e: Exception) {
-            holder.predictionText.text = "N/A"
-            holder.confidenceText.text = R.string.no_prediction.toString()
+            if (data.predictions.isNotEmpty()) {
+                val highestConfidenceIndex = findHighestConfidence(data.predictions)
+                holder.predictionText.text = data.predictions[highestConfidenceIndex].`class`
+                holder.confidenceText.text = data.predictions[highestConfidenceIndex].confidence.toString()
+            }
+            else {
+                holder.predictionText.text = "N/A"
+                holder.confidenceText.text = holder.itemView.context.getString(R.string.no_prediction)
+            }
         }
     }
 
