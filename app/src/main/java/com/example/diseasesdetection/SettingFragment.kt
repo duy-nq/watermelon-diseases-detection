@@ -16,6 +16,14 @@ class SettingFragment : Fragment() {
     private var stroke: Int = 1
 
     private var saveButton: Button? = null
+    private var resetButton: Button? = null
+
+    private lateinit var seekBarOverlap: Slider
+    private lateinit var textOverlap: TextView
+    private lateinit var seekBarConfidence: Slider
+    private lateinit var textConfidence: TextView
+    private lateinit var seekBarStroke: Slider
+    private lateinit var textStroke: TextView
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -26,26 +34,19 @@ class SettingFragment : Fragment() {
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        val seekBarOverlap = view.findViewById<Slider>(R.id.sliderOverlap)
-        val textOverlap = view.findViewById<TextView>(R.id.textOverlap)
-        val seekBarConfidence = view.findViewById<Slider>(R.id.sliderConfidence)
-        val textConfidence = view.findViewById<TextView>(R.id.textConfidence)
-        val seekBarStroke = view.findViewById<Slider>(R.id.sliderStroke)
-        val textStroke = view.findViewById<TextView>(R.id.textStroke)
+        seekBarOverlap = view.findViewById(R.id.sliderOverlap)
+        textOverlap = view.findViewById(R.id.titleOverlap)
+        seekBarConfidence = view.findViewById(R.id.sliderConfidence)
+        textConfidence = view.findViewById(R.id.titleConfidence)
+        seekBarStroke = view.findViewById(R.id.sliderStroke)
+        textStroke = view.findViewById(R.id.titleStroke)
 
-        saveButton = view.findViewById(R.id.button)
+        saveButton = view.findViewById(R.id.buttonSave)
+        resetButton = view.findViewById(R.id.buttonReset)
 
         super.onViewCreated(view, savedInstanceState)
 
         importSetting()
-
-        "Overlap: $overlap".also { textOverlap.text = it }
-        "Confidence: $confidence".also { textConfidence.text = it }
-        "Stroke: $stroke".also { textStroke.text = it }
-
-        seekBarOverlap.value = (overlap * 100)
-        seekBarConfidence.value = (confidence * 100)
-        seekBarStroke.value = stroke.toFloat()
 
         seekBarOverlap.addOnChangeListener { _, value, _ ->
             overlap = value / 100f
@@ -66,6 +67,11 @@ class SettingFragment : Fragment() {
             saveSetting()
             Toast.makeText(requireContext(), "Saved!", Toast.LENGTH_SHORT).show()
         }
+
+        resetButton?.setOnClickListener {
+            resetSetting()
+            Toast.makeText(requireContext(), "Reset!", Toast.LENGTH_SHORT).show()
+        }
     }
 
     private fun saveSetting() {
@@ -74,9 +80,29 @@ class SettingFragment : Fragment() {
         Setting.stroke = stroke
     }
 
-    fun importSetting() {
+    private fun importSetting() {
         overlap = Setting.overlap
         confidence = Setting.confidence
         stroke = Setting.stroke
+
+        updateSeekBars()
+    }
+
+    private fun resetSetting() {
+        overlap = 0.3f
+        confidence = 0.3f
+        stroke = 1
+
+        updateSeekBars()
+    }
+
+    private fun updateSeekBars() {
+        "Overlap: $overlap".also { textOverlap.text = it }
+        "Confidence: $confidence".also { textConfidence.text = it }
+        "Stroke: $stroke".also { textStroke.text = it }
+
+        seekBarOverlap.value = (overlap * 100)
+        seekBarConfidence.value = (confidence * 100)
+        seekBarStroke.value = stroke.toFloat()
     }
 }
