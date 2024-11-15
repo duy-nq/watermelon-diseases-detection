@@ -8,6 +8,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import android.widget.TextView
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.fragment.app.Fragment
@@ -27,6 +28,7 @@ import java.net.URL
 class AdvancedFragment : Fragment() {
     private lateinit var imageUris: MutableList<Uri>
     private lateinit var recyclerViewImages: RecyclerView
+    private lateinit var placeHolderText: TextView
     private lateinit var imagesAdapter: ImageAdapter
     private lateinit var jsonData: MutableList<ImageAdapter.JsonData>
 
@@ -37,6 +39,7 @@ class AdvancedFragment : Fragment() {
             imageUris.clear()
             imageUris.addAll(it)
             imagesAdapter.notifyDataSetChanged()
+            updateUIAfterSelection()
         }
     }
 
@@ -105,6 +108,16 @@ class AdvancedFragment : Fragment() {
         }
     }
 
+    private fun updateUIAfterSelection() {
+        if (imageUris.isNotEmpty()) {
+            placeHolderText.visibility = View.GONE
+            recyclerViewImages.visibility = View.VISIBLE
+        } else {
+            placeHolderText.visibility = View.VISIBLE
+            recyclerViewImages.visibility = View.GONE
+        }
+    }
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -128,6 +141,7 @@ class AdvancedFragment : Fragment() {
         }
 
         recyclerViewImages = view.findViewById(R.id.recyclerViewImages)
+        placeHolderText = view.findViewById(R.id.placeholder_text)
         imageUris = mutableListOf()
         jsonData = mutableListOf()
         imagesAdapter = ImageAdapter(imageUris, jsonData)
@@ -139,6 +153,8 @@ class AdvancedFragment : Fragment() {
 
         view.findViewById<Button>(R.id.button_select_images).setOnClickListener {
             multipleImagePickerLauncher.launch("image/*")
+
+
         }
 
         view.findViewById<Button>(R.id.button_predict).setOnClickListener {
