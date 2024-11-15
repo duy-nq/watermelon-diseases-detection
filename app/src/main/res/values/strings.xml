@@ -13,17 +13,25 @@
     <string name="function_02">Main Detection</string>
     <string name="function_03">Settings</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="save_button">Save!</string>
+    <string name="save_button">Save</string>
     <string name="seeker_overlap">Overlap</string>"
     <string name="seeker_confidence">Confidence</string>
     <string name="seeker_stroke">Stroke</string>
     <string name="card_default_result">Processing result will be displayed here</string>
     <string name="prediction_result">Prediction Result</string>
-    <string name="confidence">Confidence: 0.00</string>
     <string name="image_desc">Image from gallery!</string>
     <string name="predict">Predict</string>
     <string name="no_prediction">Not containing any leaves or out of prediction class.</string>
     <string name="mil_title"><![CDATA[Image Selection & Prediction]]></string>
     <string name="mil_subtitle">Select images and start the prediction process to analyze your selection.</string>
     <string name="mil_no_img">No images selected yet</string>
+    <string name="sf_title">Image Processing Settings</string>
+    <string name="sf_subtitle">Adjust overlap, confidence, and stroke thickness to fine-tune predictions.</string>
+    <string name="sf_confidence">Confidence: 0.00</string>
+    <string name="sf_confidence_description">Set the confidence threshold for predictions.</string>
+    <string name="sf_overlap">Overlap: 0.00</string>
+    <string name="sf_overlap_description">Adjust the overlap level for image processing.</string>
+    <string name="sf_stroke">Stroke: 0.00</string>
+    <string name="sf_stroke_description">Adjust the stroke thickness for image outlines.</string>
+    <string name="reset_button">Reset</string>
 </resources>

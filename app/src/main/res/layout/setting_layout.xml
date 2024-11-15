@@ -11,7 +11,7 @@
         android:id="@+id/titleSettings"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Image Processing Settings"
+        android:text="@string/sf_title"
         android:textAppearance="?attr/textAppearanceHeadline6"
         android:paddingBottom="4dp"
         android:layout_gravity="start"/>
@@ -21,7 +21,7 @@
         android:id="@+id/subtitleSettings"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Adjust overlap, confidence, and stroke thickness to fine-tune predictions."
+        android:text="@string/sf_subtitle"
         android:textAppearance="?attr/textAppearanceBody2"
         android:paddingBottom="16dp"
         android:layout_gravity="start"/>
@@ -48,14 +48,14 @@
                 android:id="@+id/titleOverlap"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Overlap: 0%"
+                android:text="@string/sf_overlap"
                 android:textAppearance="?attr/textAppearanceSubtitle1"
                 android:paddingBottom="4dp"/>
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Adjust the overlap level for image processing."
+                android:text="@string/sf_overlap_description"
                 android:textAppearance="?attr/textAppearanceBody2"
                 android:paddingBottom="4dp"/>
 
@@ -76,7 +76,7 @@
                 android:id="@+id/titleConfidence"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Confidence: 0%"
+                android:text="@string/sf_confidence"
                 android:textAppearance="?attr/textAppearanceSubtitle1"
                 android:paddingTop="8dp"
                 android:paddingBottom="4dp"/>
@@ -84,7 +84,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Set the confidence threshold for predictions."
+                android:text="@string/sf_confidence_description"
                 android:textAppearance="?attr/textAppearanceBody2"
                 android:paddingBottom="4dp"/>
 
@@ -105,7 +105,7 @@
                 android:id="@+id/titleStroke"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Stroke: 1px"
+                android:text="@string/sf_stroke"
                 android:textAppearance="?attr/textAppearanceSubtitle1"
                 android:paddingTop="8dp"
                 android:paddingBottom="4dp"/>
@@ -113,7 +113,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Adjust the stroke thickness for image outlines."
+                android:text="@string/sf_stroke_description"
                 android:textAppearance="?attr/textAppearanceBody2"
                 android:paddingBottom="4dp"/>
 
@@ -154,7 +154,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="8dp"
-                    android:text="Reset"
+                    android:text="@string/reset_button"
                     app:cornerRadius="8dp"
                     style="@style/Widget.MaterialComponents.Button.TextButton"
                     android:backgroundTint="@color/design_default_color_secondary"/>
