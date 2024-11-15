@@ -17,6 +17,7 @@
     <string name="seeker_overlap">Overlap</string>"
     <string name="seeker_confidence">Confidence</string>
     <string name="seeker_stroke">Stroke</string>
+    <string name="confidence">Confidence</string>
     <string name="card_default_result">Processing result will be displayed here</string>
     <string name="prediction_result">Prediction Result</string>
     <string name="image_desc">Image from gallery!</string>
