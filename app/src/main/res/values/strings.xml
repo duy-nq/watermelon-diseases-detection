@@ -1,38 +1,59 @@
 <resources>
-    <string name="app_name">DiseasesDetection</string>
+    <!-- App Name -->
+    <string name="app_name" translatable="false">DiseasesDetection</string>
+
+    <!-- Main Functions -->
     <string name="function_1">Take Photo</string>
     <string name="function_2">Choose from Gallery</string>
     <string name="function_3">Send Image</string>
+    <string name="predict">Predict</string>
+
+    <!-- Full-Screen Description -->
     <string name="full_screen_desc">Extended image after predict!</string>
-    <!-- Strings used for fragments for navigation -->
+
+    <!-- Navigation Strings -->
     <string name="first_fragment_label">First Fragment</string>
     <string name="second_fragment_label">Second Fragment</string>
     <string name="next">Next</string>
     <string name="previous">Previous</string>
+
+    <!-- Fragment Names -->
     <string name="function_01">Detection</string>
     <string name="function_02">Main Detection</string>
     <string name="function_03">Settings</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <!-- Buttons -->
     <string name="save_button">Save</string>
-    <string name="seeker_overlap">Overlap</string>"
+    <string name="reset_button">Reset</string>
+
+    <!-- Sliders (Seekers) -->
+    <string name="seeker_overlap">Overlap</string>
     <string name="seeker_confidence">Confidence</string>
     <string name="seeker_stroke">Stroke</string>
-    <string name="confidence">Confidence</string>
-    <string name="card_default_result">Processing result will be displayed here</string>
-    <string name="prediction_result">Prediction Result</string>
-    <string name="image_desc">Image from gallery!</string>
-    <string name="predict">Predict</string>
-    <string name="no_prediction">Not containing any leaves or out of prediction class.</string>
-    <string name="mil_title"><![CDATA[Image Selection & Prediction]]></string>
-    <string name="mil_subtitle">Select images and start the prediction process to analyze your selection.</string>
-    <string name="mil_no_img">No images selected yet</string>
-    <string name="sf_title">Image Processing Settings</string>
-    <string name="sf_subtitle">Adjust overlap, confidence, and stroke thickness to fine-tune predictions.</string>
     <string name="sf_confidence">Confidence: 0.00</string>
     <string name="sf_confidence_description">Set the confidence threshold for predictions.</string>
     <string name="sf_overlap">Overlap: 0.00</string>
     <string name="sf_overlap_description">Adjust the overlap level for image processing.</string>
     <string name="sf_stroke">Stroke: 0.00</string>
     <string name="sf_stroke_description">Adjust the stroke thickness for image outlines.</string>
-    <string name="reset_button">Reset</string>
+
+    <!-- Cards -->
+    <string name="card_default_result">Processing result will be displayed here</string>
+    <string name="prediction_result">Prediction Result</string>
+    <string name="no_prediction">Not containing any leaves or out of prediction class.</string>
+
+    <!-- Image Descriptions -->
+    <string name="image_desc">Image from gallery!</string>
+    <string name="mil_no_img">No images selected yet</string>
+
+    <!-- Titles and Subtitles -->
+    <string name="mil_title"><![CDATA[Image Selection & Prediction]]></string>
+    <string name="mil_subtitle">Select images and start the prediction process to analyze your selection.</string>
+    <string name="sf_title">Image Processing Settings</string>
+    <string name="sf_subtitle">Adjust overlap, confidence, and stroke thickness to fine-tune predictions.</string>
+    <string name="languages_icon">Languages icon</string>
+    <string name="lang_switch_title">Language</string>
+    <string name="lang_switch_description">Change between English and Vietnamese</string>
+    <string name="lang_eng" translatable="false">English!</string>
 </resources>

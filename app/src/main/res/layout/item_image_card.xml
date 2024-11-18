@@ -38,7 +38,7 @@
             android:id="@+id/textConfidenceScore"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/confidence"
+            android:text="@string/card_default_result"
             android:textSize="14sp" />
     </LinearLayout>
 </androidx.cardview.widget.CardView>

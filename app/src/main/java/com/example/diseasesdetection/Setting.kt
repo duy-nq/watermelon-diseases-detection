@@ -7,5 +7,6 @@ class Setting : Application() {
         var overlap: Float = 0.3f
         var confidence: Float = 0.3f
         var stroke: Int = 1
+        var isEnglish: Boolean = false
     }
 }

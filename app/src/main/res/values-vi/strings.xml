@@ -1,0 +1,58 @@
+<resources>
+    <!-- Tên ứng dụng -->
+    <string name="app_name" translatable="false">DiseasesDetection</string>
+
+    <!-- Chức năng chính -->
+    <string name="function_1">Chụp ảnh</string>
+    <string name="function_2">Chọn từ thư viện</string>
+    <string name="function_3">Gửi hình ảnh</string>
+    <string name="predict">Dự đoán</string>
+
+    <!-- Mô tả toàn màn hình -->
+    <string name="full_screen_desc">Hình ảnh mở rộng sau khi dự đoán!</string>
+
+    <!-- Chuỗi điều hướng -->
+    <string name="first_fragment_label">Fragment đầu tiên</string>
+    <string name="second_fragment_label">Fragment thứ hai</string>
+    <string name="next">Tiếp theo</string>
+    <string name="previous">Trước</string>
+
+    <!-- Tên fragment -->
+    <string name="function_01">Nhận diện</string>
+    <string name="function_02">Nhận diện chính</string>
+    <string name="function_03">Cài đặt</string>
+    <string name="hello_blank_fragment">Xin chào blank fragment</string>
+
+    <!-- Nút bấm -->
+    <string name="save_button">Lưu</string>
+    <string name="reset_button">Đặt lại</string>
+
+    <!-- Thanh trượt (Seekers) -->
+    <string name="seeker_overlap">Chồng chéo</string>
+    <string name="seeker_confidence">Độ tin cậy</string>
+    <string name="seeker_stroke">Độ dày</string>
+    <string name="sf_confidence">Độ tin cậy: 0.00</string>
+    <string name="sf_confidence_description">Cài đặt ngưỡng độ tin cậy cho dự đoán.</string>
+    <string name="sf_overlap">Chồng chéo: 0.00</string>
+    <string name="sf_overlap_description">Điều chỉnh mức độ chồng chéo khi xử lý hình ảnh.</string>
+    <string name="sf_stroke">Độ dày: 0.00</string>
+    <string name="sf_stroke_description">Điều chỉnh độ dày đường viền cho hình ảnh.</string>
+
+    <!-- Thẻ -->
+    <string name="card_default_result">Kết quả xử lý sẽ được hiển thị ở đây</string>
+    <string name="prediction_result">Kết quả dự đoán</string>
+    <string name="no_prediction">Không chứa lá hoặc nằm ngoài lớp dự đoán.</string>
+
+    <!-- Mô tả hình ảnh -->
+    <string name="image_desc">Hình ảnh từ thư viện!</string>
+    <string name="mil_no_img">Chưa chọn hình ảnh nào</string>
+
+    <!-- Tiêu đề và phụ đề -->
+    <string name="mil_title"><![CDATA[Chọn & Dự đoán Hình Ảnh]]></string>
+    <string name="mil_subtitle">Chọn hình ảnh và bắt đầu quá trình dự đoán để phân tích lựa chọn của bạn.</string>
+    <string name="sf_title">Cài đặt Xử lý Hình ảnh</string>
+    <string name="sf_subtitle">Điều chỉnh chồng chéo, độ tin cậy và độ dày để tinh chỉnh dự đoán.</string>
+    <string name="lang_switch_title">Ngôn ngữ</string>
+    <string name="languages_icon">Icon ngôn ngữ</string>
+    <string name="lang_switch_description">Chuyển giữa Tiếng Anh và Tiếng Việt</string>
+</resources>

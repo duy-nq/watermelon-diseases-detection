@@ -1,5 +1,6 @@
 package com.example.diseasesdetection
 
+import android.content.Context
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -8,7 +9,11 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
+import androidx.appcompat.widget.SwitchCompat
+import androidx.core.app.ActivityCompat.recreate
+import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.slider.Slider
+import java.util.Locale
 
 class SettingFragment : Fragment() {
     private var overlap: Float = 0f
@@ -17,6 +22,7 @@ class SettingFragment : Fragment() {
 
     private var saveButton: Button? = null
     private var resetButton: Button? = null
+    private var languageSwitch: SwitchCompat? = null
 
     private lateinit var seekBarOverlap: Slider
     private lateinit var textOverlap: TextView
@@ -43,10 +49,12 @@ class SettingFragment : Fragment() {
 
         saveButton = view.findViewById(R.id.buttonSave)
         resetButton = view.findViewById(R.id.buttonReset)
+        languageSwitch = view.findViewById(R.id.languageSwitch)
 
         super.onViewCreated(view, savedInstanceState)
 
         importSetting()
+        languageSwitch?.setChecked(Setting.isEnglish)
 
         seekBarOverlap.addOnChangeListener { _, value, _ ->
             overlap = value / 100f
@@ -71,6 +79,23 @@ class SettingFragment : Fragment() {
         resetButton?.setOnClickListener {
             resetSetting()
             Toast.makeText(requireContext(), "Reset!", Toast.LENGTH_SHORT).show()
+        }
+
+        languageSwitch?.setOnCheckedChangeListener { _, _ ->
+            if (Setting.isEnglish) {
+                changeLanguage(requireContext(), "vi")
+                Toast.makeText(requireContext(), "Changed to Vietnamese!", Toast.LENGTH_SHORT).show()
+                Setting.isEnglish = false
+            } else {
+                changeLanguage(requireContext(), "en")
+                Toast.makeText(requireContext(), "Changed to English!", Toast.LENGTH_SHORT).show()
+                Setting.isEnglish = true
+            }
+
+            val bottomNavView = requireActivity().findViewById<BottomNavigationView>(R.id.bottomNavigationView)
+            bottomNavView.selectedItemId = R.id.basic
+
+            recreate(requireActivity())
         }
     }
 
@@ -105,4 +130,13 @@ class SettingFragment : Fragment() {
         seekBarConfidence.value = (confidence * 100)
         seekBarStroke.value = stroke.toFloat()
     }
+
+    private fun changeLanguage(context: Context, language: String) {
+        val locale = Locale(language)
+        Locale.setDefault(locale)
+        val config = context.resources.configuration
+        config.setLocale(locale)
+        context.createConfigurationContext(config)
+    }
+
 }
