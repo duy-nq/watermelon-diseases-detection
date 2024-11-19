@@ -2,7 +2,8 @@
   "project_info": {
     "project_number": "226294369992",
     "project_id": "diseases-detection-d20",
-    "storage_bucket": "diseases-detection-d20.firebasestorage.app"
+    "storage_bucket": "diseases-detection-d20.firebasestorage.app",
+    "firebase_url": "https://diseases-detection-d20-default-rtdb.asia-southeast1.firebasedatabase.app/"
   },
   "client": [
     {

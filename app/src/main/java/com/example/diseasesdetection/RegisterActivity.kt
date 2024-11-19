@@ -2,6 +2,7 @@ package com.example.diseasesdetection
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
@@ -61,14 +62,16 @@ class RegisterActivity : AppCompatActivity() {
                     database.child(userId).setValue(userMap).addOnCompleteListener { dbTask ->
                         if (dbTask.isSuccessful) {
                             Toast.makeText(this, R.string.register_success, Toast.LENGTH_SHORT).show()
+                            Log.d("RegisterActivity", "User registered successfully")
                             startActivity(Intent(this, LoginActivity::class.java))
                         } else {
+                            Log.e("Register", "Error writing user data: ${dbTask.exception?.message}")
                             Toast.makeText(this, "${R.string.error_register_failed}: ${dbTask.exception?.message}", Toast.LENGTH_SHORT).show()
                         }
                     }
                 }
             } else {
-                Toast.makeText(this, "${R.string.error_unexpected}: ${task.exception?.message}", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this@RegisterActivity, "${R.string.error_unexpected}: ${task.exception?.message}", Toast.LENGTH_SHORT).show()
             }
         }
     }
