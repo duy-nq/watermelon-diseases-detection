@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "226294369992",
+    "project_id": "diseases-detection-d20",
+    "storage_bucket": "diseases-detection-d20.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:226294369992:android:01f0ab61e2dce39a6f5ffd",
+        "android_client_info": {
+          "package_name": "com.example.diseasesdetection"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD1r-1Th86Zk7XaX7q4_hU7dONxOv0GXcM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
