@@ -85,6 +85,13 @@
     <string name="error_register_failed">This field cannot be empty</string>
     <string name="error_unexpected">This field cannot be empty</string>
 
+    <!-- Info Fragment -->
+    <string name="profile_picture">Profile Picture</string>
+    <string name="username_placeholder">John Doe</string>
+    <string name="email_placeholder">john.doe@example.com</string>
+    <string name="change_password">Change Password</string>
+    <string name="logout">Log Out</string>
+
 
     <!-- Success Messages -->
     <string name="login_success">Login successful!</string>
@@ -94,4 +101,5 @@
     <string name="loading">Loading…</string>
     <string name="cancel">Cancel</string>
     <string name="ok">OK</string>
+    <string name="function_04">Info</string>
 </resources>

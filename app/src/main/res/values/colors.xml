@@ -7,6 +7,8 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="red">#FFC62828</color>
+    <color name="gray">#FF9E9E9E</color>">
     <color name="slider_track_color">#FFA726</color>
     <color name="slider_thumb_color">#FB8C00</color>
     <!-- res/values/colors.xml -->
@@ -16,6 +18,9 @@
     <color name="primary">#6200EE</color> <!-- Modern purple shade -->
     <color name="primaryDark">#3700B3</color> <!-- Darker shade for buttons -->
     <color name="primaryLight">#BB86FC</color> <!-- Lighter shade for accents -->
+    <color name="secondary">#03DAC5</color> <!-- Modern green shade -->
+    <color name="secondaryDark">#018786</color> <!-- Darker shade for buttons -->
+    <color name="secondaryLight">#03E5E5</color> <!-- Lighter shade for accents -->
 
     <!-- Backgrounds -->
     <color name="primaryBackground">#F5F5F5</color> <!-- Light gray background -->
@@ -26,4 +31,7 @@
 
     <!-- Errors -->
     <color name="error">#B00020</color> <!-- Error red color -->
+
+    <!-- LightGray -->
+    <color name="lightGray">#F5F5F5</color> <!-- Light gray background -->
 </resources>

@@ -21,6 +21,7 @@ class MainActivity : AppCompatActivity() {
                 R.id.basic -> setCurrentFragment(basicLayout)
                 R.id.settings -> setCurrentFragment(SettingFragment())
                 R.id.home -> setCurrentFragment(AdvancedFragment())
+                R.id.profile -> setCurrentFragment(InformationFragment())
             }
             true
         }

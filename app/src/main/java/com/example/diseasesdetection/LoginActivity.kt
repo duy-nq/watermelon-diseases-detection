@@ -26,7 +26,17 @@ class LoginActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_login)
+
+        val sharedPreferences = getSharedPreferences("MyPrefs", MODE_PRIVATE)
+        val isLoggedIn = sharedPreferences.getBoolean("isLoggedIn", false)
+
+        if (isLoggedIn) {
+            startActivity(Intent(this, MainActivity::class.java))
+            finish()
+        }
+        else {
+            setContentView(R.layout.activity_login)
+        }
 
         auth = FirebaseAuth.getInstance()
 
@@ -78,6 +88,7 @@ class LoginActivity : AppCompatActivity() {
                             sharedPreferences.edit().putString("username", username).apply()
                             sharedPreferences.edit().putString("email", email).apply()
                             sharedPreferences.edit().putString("uid", userId).apply()
+                            sharedPreferences.edit().putBoolean("isLoggedIn", true).apply()
 
                             startActivity(Intent(this, MainActivity::class.java))
                         } else {
