@@ -41,6 +41,8 @@ androidx-navigation-ui-ktx = { group = "androidx.navigation", name = "navigation
 androidx-activity = { group = "androidx.activity", name = "activity", version.ref = "activity" }
 gson = "com.google.code.gson:gson:2.10.1"
 firebase-bom = {module = "com.google.firebase:firebase-bom", version.ref = "firebase-bom"}
+firebase-auth = "com.google.firebase:firebase-auth:23.1.0"
+firebase-database = "com.google.firebase:firebase-database:21.0.0"
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }
