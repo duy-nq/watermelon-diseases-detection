@@ -56,4 +56,39 @@
     <string name="lang_switch_title">Language</string>
     <string name="lang_switch_description">Change between English and Vietnamese</string>
     <string name="lang_eng" translatable="false">English!</string>
+
+    <!-- Login/Registration Screen -->
+    <string name="login_title">Welcome Back!</string>
+    <string name="login_subtitle">Please sign in to continue</string>
+    <string name="register_title">Create Your Account</string>
+    <string name="register_subtitle">Start your journey with us</string>
+
+    <!-- Labels -->
+    <string name="username_hint">Username</string>
+    <string name="password_hint">Password</string>
+    <string name="confirm_password_hint">Confirm Password</string>
+    <string name="email_hint">Email</string>
+
+    <!-- Buttons -->
+    <string name="login_button">Login</string>
+    <string name="register_button">Register</string>
+    <string name="forgot_password_button">Forgot Password?</string>
+    <string name="create_account_button">Don’t have an account? Sign up</string>
+    <string name="back_to_login">Back to Login</string>
+
+    <!-- Error Messages -->
+    <string name="error_invalid_username">Invalid username</string>
+    <string name="error_invalid_password">Password must be at least 6 characters</string>
+    <string name="error_password_mismatch">Passwords do not match</string>
+    <string name="error_invalid_email">Invalid email format</string>
+    <string name="error_empty_field">This field cannot be empty</string>
+
+    <!-- Success Messages -->
+    <string name="login_success">Login successful!</string>
+    <string name="register_success">Registration successful! Welcome!</string>
+
+    <!-- General -->
+    <string name="loading">Loading…</string>
+    <string name="cancel">Cancel</string>
+    <string name="ok">OK</string>
 </resources>

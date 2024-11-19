@@ -55,4 +55,39 @@
     <string name="lang_switch_title">Ngôn ngữ</string>
     <string name="languages_icon">Icon ngôn ngữ</string>
     <string name="lang_switch_description">Chuyển giữa Tiếng Anh và Tiếng Việt</string>
+
+    <!-- Login/Registration Screen -->
+    <string name="login_title">Chào mừng trở lại!</string>
+    <string name="login_subtitle">Vui lòng đăng nhập để tiếp tục</string>
+    <string name="register_title">Tạo Tài Khoản Của Bạn</string>
+    <string name="register_subtitle">Bắt đầu hành trình với chúng tôi</string>
+
+    <!-- Labels -->
+    <string name="username_hint">Tên người dùng</string>
+    <string name="password_hint">Mật khẩu</string>
+    <string name="confirm_password_hint">Xác nhận mật khẩu</string>
+    <string name="email_hint">Email</string>
+
+    <!-- Buttons -->
+    <string name="login_button">Đăng nhập</string>
+    <string name="register_button">Đăng ký</string>
+    <string name="forgot_password_button">Quên mật khẩu?</string>
+    <string name="create_account_button">Chưa có tài khoản? Đăng ký</string>
+    <string name="back_to_login">Quay lại đăng nhập</string>
+
+    <!-- Error Messages -->
+    <string name="error_invalid_username">Tên người dùng không hợp lệ</string>
+    <string name="error_invalid_password">Mật khẩu phải có ít nhất 6 ký tự</string>
+    <string name="error_password_mismatch">Mật khẩu không khớp</string>
+    <string name="error_invalid_email">Định dạng email không hợp lệ</string>
+    <string name="error_empty_field">Trường này không được để trống</string>
+
+    <!-- Success Messages -->
+    <string name="login_success">Đăng nhập thành công!</string>
+    <string name="register_success">Đăng ký thành công! Chào mừng!</string>
+
+    <!-- General -->
+    <string name="loading">Đang tải…</string>
+    <string name="cancel">Hủy</string>
+    <string name="ok">Đồng ý</string>
 </resources>

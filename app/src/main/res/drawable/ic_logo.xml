@@ -1,0 +1,24 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="120dp"
+    android:height="120dp"
+    android:viewportWidth="120"
+    android:viewportHeight="120">
+
+    <!-- Background Circle -->
+    <path
+        android:fillColor="#3F51B5"
+        android:pathData="M60,0c33.14,0,60,26.86,60,60s-26.86,60,-60,60S0,93.14,0,60 26.86,0,60,0z" />
+
+    <!-- Stylized A -->
+    <path
+        android:fillColor="#FFFFFF"
+        android:strokeWidth="2"
+        android:strokeColor="#FFFFFF"
+        android:strokeLineJoin="round"
+        android:pathData="M40,75 L60,35 L80,75 Z M52,65 L68,65" />
+
+    <!-- Inner Decoration -->
+    <path
+        android:fillColor="#FFEB3B"
+        android:pathData="M60,43a5,5,0,1,1,-10,0 5,5,0,1,1,10,0z" />
+</vector>
