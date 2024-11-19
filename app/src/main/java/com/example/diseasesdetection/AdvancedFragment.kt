@@ -155,8 +155,6 @@ class AdvancedFragment : Fragment() {
 
         view.findViewById<Button>(R.id.button_select_images).setOnClickListener {
             multipleImagePickerLauncher.launch("image/*")
-
-
         }
 
         view.findViewById<Button>(R.id.button_predict).setOnClickListener {
