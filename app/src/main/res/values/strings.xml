@@ -82,6 +82,9 @@
     <string name="error_password_mismatch">Passwords do not match</string>
     <string name="error_invalid_email">Invalid email format</string>
     <string name="error_empty_field">This field cannot be empty</string>
+    <string name="error_register_failed">This field cannot be empty</string>
+    <string name="error_unexpected">This field cannot be empty</string>
+
 
     <!-- Success Messages -->
     <string name="login_success">Login successful!</string>

@@ -16,6 +16,8 @@ navigationFragmentKtx = "2.8.3"
 navigationUiKtx = "2.8.3"
 activity = "1.9.3"
 firebase-bom = "33.6.0"
+firebaseAuthKtx = "23.1.0"
+firebaseDatabaseKtx = "21.0.0"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
@@ -43,6 +45,8 @@ gson = "com.google.code.gson:gson:2.10.1"
 firebase-bom = {module = "com.google.firebase:firebase-bom", version.ref = "firebase-bom"}
 firebase-auth = "com.google.firebase:firebase-auth:23.1.0"
 firebase-database = "com.google.firebase:firebase-database:21.0.0"
+firebase-auth-ktx = { group = "com.google.firebase", name = "firebase-auth-ktx", version.ref = "firebaseAuthKtx" }
+firebase-database-ktx = { group = "com.google.firebase", name = "firebase-database-ktx", version.ref = "firebaseDatabaseKtx" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }

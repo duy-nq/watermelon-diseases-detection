@@ -81,6 +81,8 @@
     <string name="error_password_mismatch">Mật khẩu không khớp</string>
     <string name="error_invalid_email">Định dạng email không hợp lệ</string>
     <string name="error_empty_field">Trường này không được để trống</string>
+    <string name="error_register_failed">Lỗi đăng ký</string>
+    <string name="error_unexpected">Lỗi không xác định</string>
 
     <!-- Success Messages -->
     <string name="login_success">Đăng nhập thành công!</string>

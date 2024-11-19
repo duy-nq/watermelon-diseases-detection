@@ -70,6 +70,8 @@ dependencies {
     implementation(libs.androidx.activity)
     implementation(libs.gson)
     implementation(platform(libs.firebase.bom))
+    implementation(libs.firebase.auth.ktx)
+    implementation(libs.firebase.database.ktx)
 
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
