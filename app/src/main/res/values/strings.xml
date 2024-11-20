@@ -82,13 +82,13 @@
     <string name="error_password_mismatch">Passwords do not match</string>
     <string name="error_invalid_email">Invalid email format</string>
     <string name="error_empty_field">This field cannot be empty</string>
-    <string name="error_register_failed">This field cannot be empty</string>
-    <string name="error_unexpected">This field cannot be empty</string>
+    <string name="error_register_failed">Fail to register</string>
+    <string name="error_unexpected">Unexpected error</string>
 
     <!-- Info Fragment -->
     <string name="profile_picture">Profile Picture</string>
-    <string name="username_placeholder">John Doe</string>
-    <string name="email_placeholder">john.doe@example.com</string>
+    <string name="username_placeholder" translatable="false">John Doe</string>
+    <string name="email_placeholder" translatable="false">john.doe@example.com</string>
     <string name="change_password">Change Password</string>
     <string name="logout">Log Out</string>
 
@@ -96,6 +96,9 @@
     <!-- Success Messages -->
     <string name="login_success">Login successful!</string>
     <string name="register_success">Registration successful! Welcome!</string>
+    <string name="change_password_success">Password changed successfully!</string>
+    <string name="logout_success">Logged out successfully!</string>
+    <string name="complete_pred">Process is now done!</string>
 
     <!-- General -->
     <string name="loading">Loading…</string>

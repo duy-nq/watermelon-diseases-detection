@@ -1,6 +1,5 @@
 <resources>
     <!-- Tên ứng dụng -->
-    <string name="app_name" translatable="false">DiseasesDetection</string>
 
     <!-- Chức năng chính -->
     <string name="function_1">Chụp ảnh</string>
@@ -84,13 +83,21 @@
     <string name="error_register_failed">Lỗi đăng ký</string>
     <string name="error_unexpected">Lỗi không xác định</string>
 
+    <!-- Info Fragment -->
+    <string name="profile_picture">Ảnh đại diện</string>
+    <string name="change_password">Thay đổi mật khẩu</string>
+    <string name="logout">Đăng xuất</string>
+
     <!-- Success Messages -->
     <string name="login_success">Đăng nhập thành công!</string>
     <string name="register_success">Đăng ký thành công! Chào mừng!</string>
+    <string name="change_password_success">Đổi mật khẩu thành công!</string>
+    <string name="logout_success">Đăng xuất thành công!</string>
+    <string name="complete_pred">Quá trình hoàn tất!</string>
 
     <!-- General -->
     <string name="loading">Đang tải…</string>
     <string name="cancel">Hủy</string>
     <string name="ok">Đồng ý</string>
-    <string name="function_04">Info</string>
+    <string name="function_04">Cá nhân</string>
 </resources>
