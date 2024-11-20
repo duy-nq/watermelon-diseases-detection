@@ -98,7 +98,8 @@
     <string name="register_success">Registration successful! Welcome!</string>
     <string name="change_password_success">Password changed successfully!</string>
     <string name="logout_success">Logged out successfully!</string>
-    <string name="complete_pred">Process is now done!</string>
+    <string name="complete_prediction">Process is now done!</string>
+    <string name="upload_success">Upload success!</string>
 
     <!-- General -->
     <string name="loading">Loading…</string>

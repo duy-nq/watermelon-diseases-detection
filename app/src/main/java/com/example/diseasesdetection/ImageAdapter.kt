@@ -66,7 +66,10 @@ class ImageAdapter(
             if (data.predictions.isNotEmpty()) {
                 val highestConfidenceIndex = findHighestConfidence(data.predictions)
                 holder.predictionText.text = data.predictions[highestConfidenceIndex].`class`
-                holder.confidenceText.text = data.predictions[highestConfidenceIndex].confidence.toString()
+                holder.confidenceText.text = buildString {
+                    append("%.2f".format(data.predictions[highestConfidenceIndex].confidence * 100))
+                    append("%")
+                }
             }
             else {
                 holder.predictionText.text = "N/A"

@@ -1,7 +1,9 @@
 package com.example.diseasesdetection
 
+import android.content.Context
 import android.net.Uri
 import android.os.Bundle
+import android.provider.OpenableColumns
 import android.util.Base64
 import android.util.Log
 import android.view.LayoutInflater
@@ -14,6 +16,8 @@ import androidx.activity.result.contract.ActivityResultContracts
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.database.FirebaseDatabase
 import com.google.gson.Gson
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -31,6 +35,9 @@ class AdvancedFragment : Fragment() {
     private lateinit var placeHolderText: TextView
     private lateinit var imagesAdapter: ImageAdapter
     private lateinit var jsonData: MutableList<ImageAdapter.JsonData>
+
+    private lateinit var uid: String
+    private lateinit var database: FirebaseDatabase
 
     private val multipleImagePickerLauncher = registerForActivityResult(
         ActivityResultContracts.GetMultipleContents()
@@ -61,7 +68,7 @@ class AdvancedFragment : Fragment() {
         }
     }
 
-    private fun makePrediction(encodedFile: String, callback: PredictionCallback) {
+    private fun makePrediction(imageUri: Uri, encodedFile: String, callback: PredictionCallback) {
         val uploadURL = "https://detect.roboflow.com/deeper-diseases/1?api_key=LfVTZkyLWVh9dR2GzXjc&confidence=${Setting.confidence*100}&overlap=${Setting.overlap*100}&format=json&stroke=${Setting.stroke}&labels=true"
 
         CoroutineScope(Dispatchers.IO).launch {
@@ -98,6 +105,7 @@ class AdvancedFragment : Fragment() {
                 val jsonResponse = Gson().fromJson(response.toString(), ImageAdapter.JsonData::class.java)
                 withContext(Dispatchers.Main) {
                     callback.onPredictionResult(jsonResponse)
+                    callback.sendData(jsonResponse, imageUri)
                 }
             } catch (e: Exception) {
                 e.printStackTrace()
@@ -140,13 +148,40 @@ class AdvancedFragment : Fragment() {
             override fun onError(error: String) {
                 Log.e("Error", error)
             }
+
+            override fun sendData(result: ImageAdapter.JsonData, imageUri: Uri) {
+                val database = FirebaseDatabase.getInstance().getReference("History")
+                val recordId = database.child(uid).push().key
+
+                val data = mapOf(
+                    "uri" to imageUri.toString(),
+                    "result" to result
+                )
+
+                if (recordId != null) {
+                    database.child(uid).child(recordId).setValue(data)
+                        .addOnSuccessListener {
+                            Log.d("Firebase", "Data added successfully!")
+                        }
+                        .addOnFailureListener { error ->
+                            Log.e("Firebase", "Error adding data: ${error.message}")
+                        }
+                }
+                else {
+                    Log.e("Error", "Record ID is null!")
+                }
+            }
         }
+        val sharedPreferences = requireContext().getSharedPreferences("MyPrefs", Context.MODE_PRIVATE)
 
         recyclerViewImages = view.findViewById(R.id.recyclerViewImages)
         placeHolderText = view.findViewById(R.id.placeholder_text)
         imageUris = mutableListOf()
         jsonData = mutableListOf()
         imagesAdapter = ImageAdapter(imageUris, jsonData)
+
+        uid = sharedPreferences.getString("uid", "") ?: ""
+        database = FirebaseDatabase.getInstance()
 
         recyclerViewImages.apply {
             layoutManager = GridLayoutManager(requireContext(), 1)
@@ -160,7 +195,7 @@ class AdvancedFragment : Fragment() {
         view.findViewById<Button>(R.id.button_predict).setOnClickListener {
             for (uri in imageUris) {
                 val encodedFile = uriToBase64(uri)
-                makePrediction(encodedFile, callback)
+                makePrediction(uri, encodedFile, callback)
             }
         }
     }

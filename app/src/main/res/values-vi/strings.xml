@@ -93,11 +93,12 @@
     <string name="register_success">Đăng ký thành công! Chào mừng!</string>
     <string name="change_password_success">Đổi mật khẩu thành công!</string>
     <string name="logout_success">Đăng xuất thành công!</string>
-    <string name="complete_pred">Quá trình hoàn tất!</string>
+    <string name="complete_prediction">Quá trình hoàn tất!</string>
 
     <!-- General -->
     <string name="loading">Đang tải…</string>
     <string name="cancel">Hủy</string>
     <string name="ok">Đồng ý</string>
     <string name="function_04">Cá nhân</string>
+    <string name="upload_success">Lưu dữ liệu thành công!</string>
 </resources>
