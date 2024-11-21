@@ -26,6 +26,9 @@ import java.io.DataOutputStream
 import java.io.InputStreamReader
 import java.net.HttpURLConnection
 import java.net.URL
+import java.text.SimpleDateFormat
+import java.util.Calendar
+import java.util.Locale
 
 class AdvancedFragment : Fragment() {
     private lateinit var imageUris: MutableList<Uri>
@@ -152,8 +155,13 @@ class AdvancedFragment : Fragment() {
                 val database = FirebaseDatabase.getInstance().getReference("History")
                 val recordId = database.child(uid).push().key
 
+                val time = Calendar.getInstance().time
+                val formatter = SimpleDateFormat("yyyy-MM-dd", Locale.getDefault())
+                val currentDate = formatter.format(time)
+
                 val data = mapOf(
                     "uri" to imageUri.toString(),
+                    "date" to currentDate,
                     "result" to result
                 )
 
