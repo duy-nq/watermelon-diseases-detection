@@ -12,13 +12,13 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.advanced_layout)
 
-        val basicLayout = BasicFragment()
-        setCurrentFragment(basicLayout)
+        val advancedLayout = AdvancedFragment()
+        setCurrentFragment(advancedLayout)
 
         bottomNavigationView = findViewById(R.id.bottomNavigationView)
         bottomNavigationView.setOnItemSelectedListener {
             when (it.itemId) {
-                R.id.basic -> setCurrentFragment(basicLayout)
+                R.id.statistic -> setCurrentFragment(StatisticFragment())
                 R.id.settings -> setCurrentFragment(SettingFragment())
                 R.id.home -> setCurrentFragment(AdvancedFragment())
                 R.id.profile -> setCurrentFragment(InformationFragment())

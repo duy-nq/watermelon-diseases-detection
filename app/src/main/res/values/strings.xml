@@ -106,4 +106,10 @@
     <string name="cancel">Cancel</string>
     <string name="ok">OK</string>
     <string name="function_04">Info</string>
+    <string name="function_05">Dashboard</string>
+    <string name="statistics_overview">Statistics Overview</string>
+    <string name="n_a" translatable="false">N/A</string>
+    <string name="total_images_processed">Total Images Processed</string>
+    <string name="common_classes">Common Classes</string>
+    <string name="top_3_class_trends">Top 3 Class Trends</string>
 </resources>

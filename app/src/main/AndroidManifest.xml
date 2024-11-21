@@ -16,6 +16,9 @@
         android:theme="@style/Theme.DiseasesDetection"
         tools:targetApi="31">
         <activity
+            android:name=".StatisticFragment"
+            android:exported="false" />
+        <activity
             android:name=".InformationFragment"
             android:exported="false" />
         <activity

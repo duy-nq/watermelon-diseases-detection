@@ -34,4 +34,8 @@
 
     <!-- LightGray -->
     <color name="lightGray">#F5F5F5</color> <!-- Light gray background -->
+
+    <color name="backgroundColor">#F5F5F5</color>
+    <color name="cardBackground">#FFFFFF</color>
+    <color name="titleTextColor">#333333</color>
 </resources>

@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
-        android:id="@+id/basic"
-        android:title="@string/function_01"
-        android:icon="@drawable/ic_action_name_01"/>
-    <item
         android:id="@+id/home"
-        android:title="@string/function_02"
+        android:title="@string/function_01"
         android:icon="@drawable/ic_action_name_02"/>
+    <item
+        android:id="@+id/statistic"
+        android:title="@string/function_05"
+        android:icon="@drawable/ic_action_name_05"/>
     <item
         android:id="@+id/settings"
         android:title="@string/function_03"

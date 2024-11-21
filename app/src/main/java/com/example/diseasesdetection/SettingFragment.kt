@@ -93,7 +93,7 @@ class SettingFragment : Fragment() {
             }
 
             val bottomNavView = requireActivity().findViewById<BottomNavigationView>(R.id.bottomNavigationView)
-            bottomNavView.selectedItemId = R.id.basic
+            bottomNavView.selectedItemId = R.id.home
 
             recreate(requireActivity())
         }

@@ -101,4 +101,9 @@
     <string name="ok">Đồng ý</string>
     <string name="function_04">Cá nhân</string>
     <string name="upload_success">Lưu dữ liệu thành công!</string>
+    <string name="function_05">Dashboard</string>
+    <string name="statistics_overview">Số liệu thống kê</string>
+    <string name="total_images_processed">hình ảnh đã xử lý</string>
+    <string name="common_classes">Các loại bệnh phổ biến</string>
+    <string name="top_3_class_trends">Dữ liệu theo ngày</string>
 </resources>
