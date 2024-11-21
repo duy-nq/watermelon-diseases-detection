@@ -43,6 +43,7 @@ class AdvancedFragment : Fragment() {
         uris?.let {
             val previousSize = imageUris.size
             imageUris.clear()
+            jsonData.clear()
             imagesAdapter.notifyItemRangeRemoved(0, previousSize)
             imageUris.addAll(it)
             imagesAdapter.notifyItemRangeInserted(0, imageUris.size)
