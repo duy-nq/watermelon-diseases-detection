@@ -11,17 +11,24 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.github.mikephil.charting.charts.BarChart
+import com.github.mikephil.charting.charts.LineChart
+import com.github.mikephil.charting.components.Legend
 import com.github.mikephil.charting.components.XAxis
 import com.github.mikephil.charting.data.BarData
 import com.github.mikephil.charting.data.BarDataSet
 import com.github.mikephil.charting.data.BarEntry
+import com.github.mikephil.charting.data.Entry
+import com.github.mikephil.charting.data.LineData
+import com.github.mikephil.charting.data.LineDataSet
 import com.github.mikephil.charting.formatter.IndexAxisValueFormatter
 import com.github.mikephil.charting.interfaces.datasets.IBarDataSet
+import com.github.mikephil.charting.interfaces.datasets.ILineDataSet
 import com.google.firebase.database.FirebaseDatabase
+import java.security.KeyStore
 
 class StatisticFragment : Fragment() {
     private lateinit var totalImage: TextView
-    private lateinit var barChart: BarChart
+    private lateinit var lineChart: LineChart
     private lateinit var recyclerView: RecyclerView
 
     private lateinit var uid: String
@@ -68,8 +75,8 @@ class StatisticFragment : Fragment() {
 
         val callback = object : StatisticsCallback {
             override fun onStatisticsResult(data: Map<String, Map<String, Int>>) {
-                val (dates, barData) = prepareGeneralBarChartData(data)
-                setupBarChart(barChart, dates, barData)
+                val (dates, barData) = prepareLineChartData(data)
+                setupLineChart(lineChart, dates, barData)
 
                 recyclerView.adapter = CommonClassesAdapter(getTopThreeClasses(data))
             }
@@ -82,7 +89,7 @@ class StatisticFragment : Fragment() {
         val sharedPreferences = requireContext().getSharedPreferences("MyPrefs", Context.MODE_PRIVATE)
 
         totalImage = view.findViewById(R.id.totalImagesNumber)
-        barChart = view.findViewById(R.id.barChartTrends)
+        lineChart = view.findViewById(R.id.lineChartTrends)
 
         recyclerView = view.findViewById(R.id.recyclerCommonClasses)
         recyclerView.layoutManager = LinearLayoutManager(requireContext())
@@ -157,15 +164,15 @@ class StatisticFragment : Fragment() {
         return classCounts
     }
 
-    private fun prepareGeneralBarChartData(data: Map<String, Map<String, Int>>): Pair<List<String>, BarData> {
+    private fun prepareLineChartData(data: Map<String, Map<String, Int>>): Pair<List<String>, LineData> {
         val dates = data.keys.sorted() // Sort dates to maintain chronological order
         val classNames = mutableSetOf<String>()
 
         // Collect all unique classes
         data.values.forEach { counts -> classNames.addAll(counts.keys) }
 
-        val barDataSets = mutableListOf<BarDataSet>()
-        val entriesByClass = mutableMapOf<String, MutableList<BarEntry>>()
+        val lineDataSets = mutableListOf<LineDataSet>()
+        val entriesByClass = mutableMapOf<String, MutableList<Entry>>()
 
         // Initialize entries for each class
         classNames.forEach { className ->
@@ -177,41 +184,74 @@ class StatisticFragment : Fragment() {
             val counts = data[date] ?: emptyMap()
             classNames.forEach { className ->
                 val count = counts[className] ?: 0
-                entriesByClass[className]?.add(BarEntry(index.toFloat(), count.toFloat()))
+                // Normalize X values to ensure even spacing
+                entriesByClass[className]?.add(Entry(index.toFloat(), count.toFloat()))
             }
         }
 
-        // Create BarDataSet for each class
+        // Create LineDataSet for each class
         entriesByClass.forEach { (className, entries) ->
-            val dataSet = BarDataSet(entries, className)
+            val dataSet = LineDataSet(entries, className)
             dataSet.color = when (className) {
                 "Mosaic" -> android.graphics.Color.RED
-                "Downy_mildew" -> android.graphics.Color.BLUE
+                "Downy_Mildew" -> android.graphics.Color.BLUE
                 "NONE" -> android.graphics.Color.GRAY
                 else -> android.graphics.Color.GREEN
             }
-            barDataSets.add(dataSet)
+            dataSet.lineWidth = 2f
+            dataSet.setCircleColor(dataSet.color) // Match circle color to line color
+            dataSet.circleRadius = 4f
+            dataSet.setDrawValues(false) // Disable value labels on points
+            lineDataSets.add(dataSet)
         }
 
-        val barData = BarData(barDataSets as List<IBarDataSet>?)
-        barData.barWidth = 0.2f // Adjust bar width for clarity
-        return Pair(dates, barData)
+        return Pair(dates, LineData(lineDataSets as List<ILineDataSet>?))
     }
 
-    private fun setupBarChart(barChart: BarChart, dates: List<String>, barData: BarData) {
-        barChart.data = barData
 
-        val xAxis = barChart.xAxis
+    private fun setupLineChart(lineChart: LineChart, dates: List<String>, lineData: LineData) {
+        // Convert dates to short format (e.g., "22-11")
+        val shortDates = dates.map { date ->
+            val parts = date.split("-")
+            if (parts.size == 3) "${parts[2]}-${parts[1]}" else date // Reformat to "dd-MM"
+        }
+
+        lineChart.data = lineData
+
+        // Configure X-axis
+        val xAxis = lineChart.xAxis
         xAxis.position = XAxis.XAxisPosition.BOTTOM
-        xAxis.valueFormatter = IndexAxisValueFormatter(dates) // Convert index to date labels
+        xAxis.valueFormatter = IndexAxisValueFormatter(shortDates) // Use short date format
         xAxis.granularity = 1f
+        xAxis.isGranularityEnabled = true
         xAxis.setDrawGridLines(false)
 
-        barChart.description.isEnabled = false
-        barChart.legend.isEnabled = true
-        barChart.setFitBars(true)
-        barChart.invalidate() // Refresh the chart
+        // Set X-axis range
+        xAxis.axisMinimum = -0.1f // Start slightly before the first index
+        xAxis.axisMaximum = shortDates.size - 0.1f // End slightly after the last index
+
+        // Configure Y-axis
+        lineChart.axisRight.isEnabled = false // Disable the right Y-axis
+        val leftAxis = lineChart.axisLeft
+        leftAxis.setDrawGridLines(true)
+        leftAxis.granularity = 1f
+
+        // Configure Legend
+        val legend = lineChart.legend
+        legend.isEnabled = true
+        legend.verticalAlignment = Legend.LegendVerticalAlignment.BOTTOM
+        legend.horizontalAlignment = Legend.LegendHorizontalAlignment.CENTER
+        legend.orientation = Legend.LegendOrientation.HORIZONTAL
+        legend.setDrawInside(false)
+
+        // Configure chart appearance
+        lineChart.setExtraOffsets(0f, 0f, 0f, 15f)
+        lineChart.description.isEnabled = false
+        lineChart.setTouchEnabled(true)
+        lineChart.setPinchZoom(true)
+        lineChart.invalidate() // Refresh the chart
     }
+
 
     private fun getData(callback: StatisticsCallback) {
         database.getReference("History").child(uid).get()
