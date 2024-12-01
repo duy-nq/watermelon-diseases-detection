@@ -71,7 +71,7 @@ class AdvancedFragment : Fragment() {
     }
 
     private fun makePrediction(imageUri: Uri, encodedFile: String, callback: PredictionCallback) {
-        val uploadURL = "https://detect.roboflow.com/deeper-diseases/5?api_key=LfVTZkyLWVh9dR2GzXjc&confidence=${Setting.confidence*100}&overlap=${Setting.overlap*100}&format=json&stroke=${Setting.stroke}&labels=true"
+        val uploadURL = "https://detect.roboflow.com/watermelon-diseases/1?api_key=sT533LxpFWonJaFW2j00&confidence=${Setting.confidence*100}&overlap=${Setting.overlap*100}&format=json&stroke=${Setting.stroke}&labels=true"
 
         CoroutineScope(Dispatchers.IO).launch {
             var connection: HttpURLConnection? = null
