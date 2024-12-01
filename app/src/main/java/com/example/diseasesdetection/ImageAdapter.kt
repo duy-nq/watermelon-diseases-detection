@@ -39,12 +39,24 @@ class ImageAdapter(
 
     // Find the position of highest confidence in predictions
     private fun findHighestConfidence(predictions: List<Prediction>): Int {
+        var highestConfidenceIndex = 0
+
+        val highestConfidencePredictionForHealthy = predictions
+            .filter { it.`class` == "Healthy" }
+            .maxByOrNull { it.confidence }
 
         val highestConfidencePrediction = predictions
             .filter { it.`class` != "Healthy" }
             .maxByOrNull { it.confidence } ?: predictions.maxByOrNull { it.confidence }
 
-        val highestConfidenceIndex = predictions.indexOf(highestConfidencePrediction)
+        if (highestConfidencePredictionForHealthy != null && highestConfidencePrediction != null) {
+            if (highestConfidencePredictionForHealthy.confidence > highestConfidencePrediction.confidence) {
+                highestConfidenceIndex = predictions.indexOf(highestConfidencePredictionForHealthy)
+            }
+        }
+        else {
+            highestConfidenceIndex = predictions.indexOf(highestConfidencePrediction)
+        }
 
         return highestConfidenceIndex
     }
