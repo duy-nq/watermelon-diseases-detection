@@ -106,4 +106,13 @@
     <string name="total_images_processed">hình ảnh đã xử lý</string>
     <string name="common_classes">Các loại bệnh phổ biến</string>
     <string name="top_3_class_trends">Dữ liệu theo ngày</string>
+    <string name="forget_password">Quên mật khẩu?</string>
+    <string name="forgot_password_title">Quên Mật Khẩu</string>
+    <string name="send_code_button">Gửi mã</string>
+    <string name="verification_code_hint">Mã xác nhận</string>
+    <string name="done_button">Hoàn tất!</string>
+    <string name="new_password_hint">Mật khẩu mới</string>
+    <string name="email_has_been_sent">Email has been sent to your account!</string>
+    <string name="error_rate_limit">Too much request, wait for</string>
+    <string name="second">second(s)</string>
 </resources>

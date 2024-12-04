@@ -1,6 +1,7 @@
 package com.example.diseasesdetection
 
 import android.content.Intent
+import android.content.SharedPreferences
 import android.os.Bundle
 import android.util.Log
 import android.view.animation.AnimationUtils
@@ -17,6 +18,7 @@ import com.google.firebase.database.FirebaseDatabase
 class LoginActivity : AppCompatActivity() {
     private lateinit var loginButton: Button
     private lateinit var registerLink: TextView
+    private lateinit var forgotPasswordLink: TextView
     private lateinit var appLogo: ImageView
 
     private lateinit var auth: FirebaseAuth
@@ -62,6 +64,54 @@ class LoginActivity : AppCompatActivity() {
         registerLink = findViewById(R.id.registerText)
         registerLink.setOnClickListener {
             startActivity(Intent(this, RegisterActivity::class.java))
+        }
+
+        forgotPasswordLink = findViewById(R.id.forgetPassword)
+        forgotPasswordLink.setOnClickListener {
+            extracted(sharedPreferences)
+            resetPassword(username.text.toString())
+        }
+    }
+
+    private fun extracted(sharedPreferences: SharedPreferences) {
+        if (username.text.isEmpty()) {
+            Toast.makeText(this, R.string.error_empty_field, Toast.LENGTH_SHORT).show()
+            return
+        }
+
+        val getTime = System.currentTimeMillis()
+        val lastRequestTime = sharedPreferences.getLong("lastRequestTime", 0)
+        val coolDown = getTime - lastRequestTime
+
+        if (coolDown < 60000L) {
+            val content = this.getString(R.string.error_rate_limit)
+            val second = this.getString(R.string.second)
+
+            val timeLeftString = buildString {
+                append(content)
+                append(" ")
+                append(((60000 - coolDown) / 1000).toString())
+                append(" ")
+                append(second)
+            }
+
+            Toast.makeText(this, timeLeftString, Toast.LENGTH_SHORT).show()
+            return
+        } else {
+            sharedPreferences.edit().putLong("lastRequestTime", getTime).apply()
+        }
+    }
+
+    private fun resetPassword(email: String) {
+        auth.sendPasswordResetEmail(email).addOnCompleteListener { task ->
+            if (task.isSuccessful) {
+                Log.d("LoginActivity", "Password reset email sent to: $email")
+                Toast.makeText(this, R.string.email_has_been_sent, Toast.LENGTH_SHORT).show()
+            }
+            else {
+                Log.e("LoginActivity", "Password reset email failed to send: ${task.exception?.message}")
+                Toast.makeText(this, R.string.error_unexpected, Toast.LENGTH_SHORT).show()
+            }
         }
     }
 

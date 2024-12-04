@@ -112,4 +112,13 @@
     <string name="total_images_processed">Total Images Processed</string>
     <string name="common_classes">Common Classes</string>
     <string name="top_3_class_trends">Top 3 Class Trends</string>
+    <string name="forget_password">Forget Password?</string>
+    <string name="forgot_password_title">Forget Password</string>
+    <string name="send_code_button">Send Code</string>
+    <string name="verification_code_hint">Confimation Code</string>
+    <string name="done_button">Done!</string>
+    <string name="new_password_hint">New Password</string>
+    <string name="email_has_been_sent">Email has been sent to your account!</string>
+    <string name="error_rate_limit">Too much request, wait for</string>
+    <string name="second">second(s)</string>
 </resources>
