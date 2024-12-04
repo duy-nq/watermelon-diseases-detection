@@ -15,7 +15,6 @@ import com.google.firebase.auth.FirebaseAuth
 class InformationFragment : Fragment() {
     private lateinit var username: TextView
     private lateinit var email: TextView
-    private lateinit var buttonChangePassword: Button
     private lateinit var buttonLogout: Button
 
     override fun onCreateView(
@@ -31,14 +30,9 @@ class InformationFragment : Fragment() {
 
         username = view.findViewById(R.id.userNameText)
         email = view.findViewById(R.id.userEmailText)
-        buttonChangePassword = view.findViewById(R.id.changePasswordButton)
         buttonLogout = view.findViewById(R.id.logoutButton)
 
         loadData()
-
-        buttonChangePassword.setOnClickListener {
-            Toast.makeText(requireContext(), "Under development!", Toast.LENGTH_SHORT).show()
-        }
 
         buttonLogout.setOnClickListener {
             logout()
