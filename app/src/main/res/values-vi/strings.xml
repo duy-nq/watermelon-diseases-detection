@@ -112,7 +112,12 @@
     <string name="verification_code_hint">Mã xác nhận</string>
     <string name="done_button">Hoàn tất!</string>
     <string name="new_password_hint">Mật khẩu mới</string>
-    <string name="email_has_been_sent">Email has been sent to your account!</string>
-    <string name="error_rate_limit">Too much request, wait for</string>
-    <string name="second">second(s)</string>
+    <string name="email_has_been_sent">Email đã được gửi đến tài khoản của bạn!</string>
+    <string name="error_rate_limit">Quá nhiều yêu cầu, vui lòng chờ</string>
+    <string name="second">giây</string>
+    <string name="prediction_success">Quá trình hoàn tất!</string>
+    <string name="welcome">Chào mừng trở lại</string>
+    <string name="save">Đã lưu!</string>
+    <string name="reset">Trở về mặc định!</string>
+    <string name="changed_to_english">Change to English!</string>
 </resources>
