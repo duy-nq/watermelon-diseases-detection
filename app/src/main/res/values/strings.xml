@@ -121,4 +121,10 @@
     <string name="email_has_been_sent">Email has been sent to your account!</string>
     <string name="error_rate_limit">Too much request, wait for</string>
     <string name="second">second(s)</string>
+    <string name="prediction_success">Process is now done!</string>
+    <string name="welcome">Welcome back</string>
+    <string name="save">Saved!</string>
+    <string name="reset">Reset!</string>
+    <string name="changed_to_vietnamese" translatable="false">Chuyển sang tiếng Việt!</string>
+    <string name="changed_to_english">Change to English!</string>
 </resources>

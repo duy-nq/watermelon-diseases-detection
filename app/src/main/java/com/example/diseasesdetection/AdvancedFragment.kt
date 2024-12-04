@@ -113,7 +113,7 @@ class AdvancedFragment : Fragment() {
                 e.printStackTrace()
             } finally {
                 withContext(Dispatchers.Main) {
-                    Toast.makeText(requireContext(), "Process is now done!", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(requireContext(), R.string.prediction_success, Toast.LENGTH_SHORT).show()
                 }
                 connection?.disconnect()
             }

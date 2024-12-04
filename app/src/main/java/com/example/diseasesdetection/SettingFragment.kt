@@ -73,22 +73,22 @@ class SettingFragment : Fragment() {
 
         saveButton?.setOnClickListener {
             saveSetting()
-            Toast.makeText(requireContext(), "Saved!", Toast.LENGTH_SHORT).show()
+            Toast.makeText(requireContext(), requireContext().getString(R.string.save), Toast.LENGTH_SHORT).show()
         }
 
         resetButton?.setOnClickListener {
             resetSetting()
-            Toast.makeText(requireContext(), "Reset!", Toast.LENGTH_SHORT).show()
+            Toast.makeText(requireContext(), R.string.reset, Toast.LENGTH_SHORT).show()
         }
 
         languageSwitch?.setOnCheckedChangeListener { _, _ ->
             if (Setting.isEnglish) {
                 changeLanguage(requireContext(), "vi")
-                Toast.makeText(requireContext(), "Changed to Vietnamese!", Toast.LENGTH_SHORT).show()
+                Toast.makeText(requireContext(), R.string.changed_to_vietnamese, Toast.LENGTH_SHORT).show()
                 Setting.isEnglish = false
             } else {
                 changeLanguage(requireContext(), "en")
-                Toast.makeText(requireContext(), "Changed to English!", Toast.LENGTH_SHORT).show()
+                Toast.makeText(requireContext(), R.string.changed_to_english, Toast.LENGTH_SHORT).show()
                 Setting.isEnglish = true
             }
 

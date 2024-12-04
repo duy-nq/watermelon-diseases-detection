@@ -133,8 +133,16 @@ class LoginActivity : AppCompatActivity() {
                         if (snapshot.exists()) {
                             val username = snapshot.child("username").value.toString()
 
+                            val welcome = this.getString(R.string.welcome)
+                            val welcomeText = buildString {
+                                append(welcome)
+                                append(", ")
+                                append(username)
+                                append("!")
+                            }
+
                             Log.d("LoginActivity", "Welcome back, $username!")
-                            Toast.makeText(this, "Welcome back, $username!", Toast.LENGTH_SHORT).show()
+                            Toast.makeText(this, welcomeText, Toast.LENGTH_SHORT).show()
 
                             sharedPreferences.edit().putString("username", username).apply()
                             sharedPreferences.edit().putString("email", email).apply()
