@@ -73,6 +73,7 @@ dependencies {
     implementation(libs.firebase.auth.ktx)
     implementation(libs.firebase.database.ktx)
     implementation(libs.mpandroidchart)
+    implementation(libs.androidx.runner)
 
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)

@@ -19,6 +19,7 @@ firebase-bom = "33.6.0"
 firebaseAuthKtx = "23.1.0"
 firebaseDatabaseKtx = "21.0.0"
 mpandroidchart = "3.1.0"
+runner = "1.6.2"
 
 
 [libraries]
@@ -50,6 +51,7 @@ firebase-database = "com.google.firebase:firebase-database:21.0.0"
 firebase-auth-ktx = { group = "com.google.firebase", name = "firebase-auth-ktx", version.ref = "firebaseAuthKtx" }
 firebase-database-ktx = { group = "com.google.firebase", name = "firebase-database-ktx", version.ref = "firebaseDatabaseKtx" }
 mpandroidchart = { module = "com.github.PhilJay:MPAndroidChart", version.ref = "mpandroidchart" }
+androidx-runner = { group = "androidx.test", name = "runner", version.ref = "runner" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }
