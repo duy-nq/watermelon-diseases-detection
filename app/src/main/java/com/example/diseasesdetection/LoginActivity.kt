@@ -68,15 +68,17 @@ class LoginActivity : AppCompatActivity() {
 
         forgotPasswordLink = findViewById(R.id.forgetPassword)
         forgotPasswordLink.setOnClickListener {
-            extracted(sharedPreferences)
+            if (!extracted(sharedPreferences)) {
+                return@setOnClickListener
+            }
             resetPassword(username.text.toString())
         }
     }
 
-    private fun extracted(sharedPreferences: SharedPreferences) {
+    private fun extracted(sharedPreferences: SharedPreferences): Boolean {
         if (username.text.isEmpty()) {
             Toast.makeText(this, R.string.error_empty_field, Toast.LENGTH_SHORT).show()
-            return
+            return false
         }
 
         val getTime = System.currentTimeMillis()
@@ -96,10 +98,12 @@ class LoginActivity : AppCompatActivity() {
             }
 
             Toast.makeText(this, timeLeftString, Toast.LENGTH_SHORT).show()
-            return
+            return false
         } else {
             sharedPreferences.edit().putLong("lastRequestTime", getTime).apply()
         }
+
+        return true
     }
 
     private fun resetPassword(email: String) {
