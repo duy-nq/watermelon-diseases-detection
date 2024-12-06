@@ -1,6 +1,6 @@
 <resources>
     <!-- App Name -->
-    <string name="app_name" translatable="false">DiseasesDetection</string>
+    <string name="app_name" translatable="false">AgriCare</string>
 
     <!-- Main Functions -->
     <string name="function_1">Take Photo</string>
